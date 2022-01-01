@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css"> 
+<link rel="stylesheet" href="testcases.css"> 
+
+    <title>Testcases</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-12 bg-info">
+    <div class="container">
+      <div class="mt-5 form-group">
+      <input class="btn btn-primary" type="submit" value="Create New Testcases">
+    </div>
+      
+        <form id="form1">
+              <div class="row">
+              <div class="container">
+            <label for="tcappname">App Name</label> 
+                 <select id="tcappname">
+                 </select>
+                     </div>    
+              <div class="container">
+            <label for="tctype">test type</label> 
+                <select id="tctype">
+                </select>
+                    </div>    
+              <div class="container> 
+              <label for="tcdesc">Testcases Desc</label>
+                
+                <input class="form-control" 
+                       type="text" 
+                       id="tcdesc" 
+                       placeholder="Enter Testcase Desc">
+                     </div> 
+     
+              <div class="container">    
+                <label for="srcqry">Source Query</label>
+                <input class="form-control" 
+                       type="text" 
+                       id="srcqry" 
+                       placeholder="Enter source query">
+                     </div>  
+                       <div class="container">  
+                <label for="tgtqry">Target Query</label>
+                <input class="form-control" 
+                       type="text" 
+                       id="tgtqry" 
+                       placeholder="Enter target query">
+                     </div>  
+                     <div class="conatiner">
+                      <label for="srcconntyp">Source conn name</label> 
+                           <select id="srcconntyp">
+                           </select>
+                           <label for="srcconn">Available Source connections</label> 
+                           <select id="srcconn">
+                           </select>
+                               </div> 
+                      <br>
+                      <br> 
+                      <div class="container">
+                         <label for="tgtconntyp">Target conn name</label> 
+                                     <select id="tgtconntyp">
+                                     </select>
+                                     <label for="tgtconn">Available Target connections</label> 
+                                     <select id="tgtconn">
+                                     </select>
+                                         </div>  
+                       <div class="container"> 
+                       <label for="srctname">Source table name</label>
+                <input class="form-control" 
+                       type="text" 
+                       id="srctname" 
+                       placeholder="Enter Source table name">
+                     </div>  
+                       <div class="container"> 
+                       <label for="tgttname">Target Table name</label>
+                <input class="form-control" 
+                       type="text" 
+                       id="tgttname" 
+                       placeholder="Enter target table name">
+                     </div>
+                     <div class="container"> 
+                      <label for="pkcolumn">Primary Key column</label>
+               <input class="form-control" 
+                      type="text" 
+                      id="pkcolumn" 
+                      placeholder="Enter PK column (Only for Compare type)">
+                    </div>
+                     
+              <div class="col-lg-2 bg-info save"> 
+                <button type="button" id="tc_create" 
+                       class="btn btn-success">Save</button>
+                     </div>
+              </div>
+                    </form>
+    </div>
+</div>
+</div> 
+<div class="row">
+       <div class="col-lg-12 bg-info">
+   <div class="container">
+     <div class="mt-5 form-group">
+     <input class="btn btn-primary" type="submit" value="Search Test Cases">
+   </div>
+     
+       <form id="form2">
+             <div class="row">
+             <div class="col-lg-2 bg-info">
+           <label for="tcappnames">App or testcase desc</label> 
+               <input class="form-control"
+                      type="text" 
+                      id="tcappnames"
+                      placeholder="Enter Search string" >
+                    </div>       
+           
+             <div class="col-lg-4 bg-info save"> 
+               <button type="button" id="tc_search" 
+                      class="btn btn-success">Search</button>
+             </div>
+                   </form>
+
+   </div>
+</div>
+</div> 
+<div class="col-lg-12" id="searcharea">
+
+</div>
+<div class="popup" id="editpop">
+  
+</div>
+ <script src="../bootstrap/js/bootstrap.js"></script>
+ <script type="module" src="testcases.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css"> 
+    <link rel="stylesheet" href="db_connection.css">
+
+    <title>Connection</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-lg-12 bg-info">
+    <div class="container">
+      <div class="mt-5 form-group">
+      <input class="btn btn-primary" type="submit" value="Create New connection">
+    </div>
+  
+        <form action="">
+            <div class="form-group">
+                <label for="conname">Connection name</label>
+                <input class="form-control"
+                       type="text" 
+                       id="conname" 
+                       placeholder="Enter connection name">
+            </div>
+            <div class="form-group">
+                <label for="dbname">Database name</label>
+                <input class="form-control"
+                       type="text" 
+                       id="dbname" 
+                       placeholder="Enter database name">
+            </div>
+            <div class="form-group">
+                <label for="dbusername">DB user name</label>
+                <input class="form-control" 
+                       type="text" 
+                       id="dbusername" 
+                       placeholder="Enter your db user name">
+            </div>
+
+            <div class="form-group">
+                <label for="dbpass">DB Password</label>
+                <input class="form-control" 
+                       type="text" 
+                       id="dbpass" 
+                       placeholder="Enter your db Passowrd">
+            </div>
+            <div class="form-group">
+                <label for="hostname">Host name</label>
+                <input class="form-control" 
+                       type="text" 
+                       id="hostname" 
+                       placeholder="Enter DB host name">
+            </div>
+            <div class="form-group">
+                <label for="dbtype">DB/Connection Type</label>
+                       <select id="dbtype">
+                       </select>
+            </div>
+            <div class="form-group">
+                <button type="button" id="connCreate"
+                        class="btn btn-success">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div> 
+
+<div class="container">
+    <div class="col-lg-12 bg-info">
+<div class="container">
+  <div class="mt-5 form-group">
+  <input class="btn btn-primary" type="none" value="Search Connection">
+</div>
+
+    <form action="">
+        <div class="form-group">
+            <label for="search_connname">Connection name</label>
+            <input class="form-control"
+                   type="text" 
+                   id="search_connname" 
+                   placeholder="Enter connection name">
+        </div>
+        <div class="form-group">
+            <button type="button" 
+                    class="btn btn-success" id="conn_search">Search</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+<div class="container" id="connsearcharea">
+</div> 
+ <script src="../bootstrap/js/bootstrap.js"></script>
+ <script type="module" src="db_connection.js"></script>
+</body>
+</html>

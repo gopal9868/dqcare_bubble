@@ -1,0 +1,65 @@
+.nav-link1:hover{
+    color:red ; /* make this whatever you want */
+    }
+
+#main_header{background-color: coral;
+        color:black;
+       text-align:center ;}
+.navbar{
+background-color: #333;
+   color:#fff;
+   padding:0}
+.navbar ul{
+padding:0;
+list-style: none;
+text-decoration:none ;
+}
+.navbar li{
+display:inline;
+padding:20px;
+}
+.navbar ul li a{
+color:white;
+text-decoration: none;
+font-size:16x ;
+padding:20px;
+}
+.container1 p {
+
+    margin-top: 0px;
+    animation: blinker 3s linear infinite;
+    color: rgb(1, 1, 31);
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+  .container1 h2 {
+
+    margin-bottom: 0px;
+  }
+  .container1{
+    margin:auto;
+    overflow:hidden;}
+    #main_footer p {
+        background-color:lightblue;
+        color:black;
+        text-align: left;
+        padding-left:50px;
+        margin-top:0px;
+        font-size: 20px;
+    }
+    .nopadding {
+        padding-left: 20 !important;
+        margin: 0 !important;
+     }
+     .container-fluid {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+      .tab {
+        margin-left: 2.5em
+       }
+    
