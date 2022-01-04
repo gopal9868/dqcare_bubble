@@ -20,5 +20,12 @@ td {
   overflow:auto;
 }
 body {
-  background: linear-gradient(123,3,4);
+  background-color: black;
+}
+.connform {
+    background:white;
+}
+
+.searchareadiv {
+    background:white;
 }
