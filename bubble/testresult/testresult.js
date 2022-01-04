@@ -88,11 +88,11 @@ const gettestcasefull=async (testCaseName,searchType)=>{
     while (tablearea.firstChild) {
       tablearea.firstChild.remove()
   };
-  const table_columns=['appname','testcase_desc','source_result','target_result','result_desc','change_date']
+  const table_columns=['App_Name','Testcase_Name','Source_Result','Target_Result','Result_Desc','Capture_Date']
   //console.log(table_columns);
-   var s='<table id="table_1"><tr>'
+   var s='<table id="table_1" class="table table-hover table-bordered"><tr>'
     table_columns.forEach(row=> {
-      var thTag=`<th>${row}</th>`
+      var thTag=`<th class="table-info">${row}</th>`
       s=s+thTag
       })
       s=s+`</tr></tr>`;

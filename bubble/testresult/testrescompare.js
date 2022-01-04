@@ -89,9 +89,9 @@ const gettestcasefull=async (testCaseName,searchType)=>{
   };
   const table_columns=['appname','testcase_desc','result_column','pk_column','pk_value','source_result','target_result','result_desc','change_date']
   //console.log(table_columns);
-   var s='<table id="table_1"><tr>'
+   var s='<table id="table_1" class="table table-hover table-bordered"><tr>'
     table_columns.forEach(row=> {
-      var thTag=`<th>${row}</th>`
+      var thTag=`<th class="table-info">${row}</th>`
       s=s+thTag
       })
       s=s+`</tr></tr>`;

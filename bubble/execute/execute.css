@@ -5,3 +5,10 @@ th {
   #tcfullarea {
     overflow:auto;
   }
+
+  body {
+    background-color: black;
+    }
+    .connform {
+      background:white;
+    }

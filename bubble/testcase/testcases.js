@@ -342,12 +342,12 @@ tgtconntyp.addEventListener('change',(e)=> {
     while (tablearea.firstChild) {
       tablearea.firstChild.remove()
   };
-  const table_columns=['appname','result_type','testcase_desc','source_query','target_query','source_connection_name',
-  'target_connection_name','source_table_name','target_table_name','change_date','pk_column']
+  const table_columns=['App_Name','Result_Type','Testcase_Name','Source_Query','Target_Query','Source_Conn_Name',
+  'Target_Conn_Name','Source_Table_Name','Target_Table_Name','Update_Date','Primary_Key','Edit','Delete']
   //console.log(table_columns);
-   var s='<table id="table_1"><tr>'
+   var s='<table id="table_1" class="table table-hover table-bordered"><tr>'
     table_columns.forEach(row=> {
-      var thTag=`<th>${row}</th>`
+      var thTag=`<th class="table-info">${row}</th>`
       s=s+thTag
       })
       s=s+`</tr></tr>`;

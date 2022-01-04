@@ -124,7 +124,7 @@ const gettestcasefull=async (testCaseName,searchType)=>{
       tablearea.firstChild.remove()
   };
   const table_columns=['appname','testcase_desc','source_query','target_query','source_connection_name',
-  'target_connection_name','source_table_name','target_table_name','change_date','execute']
+  'target_connection_name','source_table_name','target_table_name','change_date','execute','schedule','<button id="gen_script" class="btn btn-primary">Generate Python Schedule script</button>']
   //console.log(table_columns);
    var s='<table id="table_1"><tr>'
     table_columns.forEach(row=> {
@@ -141,6 +141,8 @@ const gettestcasefull=async (testCaseName,searchType)=>{
       <td id="tgtconame_${row['id']}">${row['target_connection_name']}</td><td>${row['source_table_name']}</td><td>${row['target_table_name']}</td>
       <td>${row['change_date'].split('.')[0].replace('T',' ')}</td>
       <td><button id="execute_${editId}" class="btn btn-primary rowedit">Execute</button></td>
+      <td><input type="checkbox" value="true" name="checkb" id="chkbox_${row['id']}"> Yes</td>
+      <td><input type="number" id="numbox_${row['id']}"> Sched seq</td>
       </tr>`
       s=s+tablerow
       i=i+1

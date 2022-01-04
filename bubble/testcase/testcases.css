@@ -1,24 +1,31 @@
 
 .save {
-    margin-top:20px;
-    margin-left:20px;
+  margin-top:20px;
+  margin-left:20px;
 }
 td {
-    padding: 0 15px;
-  }
+  padding: 0 15px;
+}
 
-  th {
-    padding: 0 15px;
-  }
+th {
+  padding: 0 15px;
+}
 .rowedit, .rowdelete  {
-  height:20px;
-  font-size: 8px;
-  width:50px;
-  text-align: top;
+height:20px;
+font-size: 8px;
+width:50px;
+text-align: top;
 }
 #searcharea {
-  overflow:auto;
+overflow:auto;
 }
 body {
-  background: linear-gradient(123,3,4);
+background-color: black;
+}
+.connform {
+  background:white;
+}
+
+.searchareadiv {
+  background:white;
 }

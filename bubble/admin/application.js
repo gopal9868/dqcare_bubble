@@ -66,9 +66,9 @@ application.addEventListener('click',e=>{
   };
   const table_columns=['app_name   ','app_domain  ','app_owner  ','app_team_dl  ','change_date  ']
   //console.log(table_columns);
-   var s='<table id="table_main"><tr>'
+   var s='<table id="table_main" class="table-hover table-bordered"><tr>'
     table_columns.forEach(row=> {
-      var thTag=`<th class="thead">${row}</th>`
+      var thTag=`<th class="table-info">${row}</th>`
       s=s+thTag
       })
       s=s+`</tr></tr>`;
