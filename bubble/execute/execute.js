@@ -92,6 +92,7 @@ const getAppList=async(appsearcharea)=>{
 }
 const gettestcase=async (appname,tcsearcharea)=>{
     const response=await fetch(`${apiUrl}testcases/?appname=${appname}`);
+  
     if (response.status>=300)
     { throw new Error("Resource not found"+response.statusText)}
     var data=await response.json();
@@ -123,24 +124,26 @@ const gettestcasefull=async (testCaseName,searchType)=>{
     while (tablearea.firstChild) {
       tablearea.firstChild.remove()
   };
-  const table_columns=['appname','testcase_desc','source_query','target_query','source_connection_name',
-  'target_connection_name','source_table_name','target_table_name','change_date','execute']
+  const table_columns=['App_name','Testcase_Name','Source_Query','Target_Query','Source_Conn_Name',
+  'Target_Conn_Name','Update_Date','Action','Status']
   //console.log(table_columns);
-   var s='<table id="table_1"><tr>'
+   var s='<table id="table_1" class="table-hover table-bordered"><tr>'
     table_columns.forEach(row=> {
-      var thTag=`<th>${row}</th>`
+      var thTag=`<th class="table-info">${row}</th>`
       s=s+thTag
       })
       s=s+`</tr></tr>`;
       var i=1
     data.forEach(row => {
       var editId=`${row['id']}`
-      var deleteId=`delete_${row['id']}` 
+      var deleteId=`delete_${row['id']}`
+      var vstatus='Ready'
       var tablerow=`<tr id="tablerow_${row['id']}"><td id="appname_${row['id']}">${row['appname']}</td><td>${row['testcase_desc']}</td>
       <td>${row['source_query']}</td><td>${row['target_query']}</td><td id="srcconame_${row['id']}">${row['source_connection_name']}</td>
-      <td id="tgtconame_${row['id']}">${row['target_connection_name']}</td><td>${row['source_table_name']}</td><td>${row['target_table_name']}</td>
+      <td id="tgtconame_${row['id']}">${row['target_connection_name']}</td>
       <td>${row['change_date'].split('.')[0].replace('T',' ')}</td>
       <td><button id="execute_${editId}" class="btn btn-primary rowedit">Execute</button></td>
+      <td id="stat_${row['id']}">${vstatus}</td>
       </tr>`
       s=s+tablerow
       i=i+1
@@ -150,11 +153,20 @@ tablearea.innerHTML =s ;
 //console.log(s)
      };
 const excuteTestCase=async(dbid)=>{
-    //console.log(dbid)
+    console.log(dbid)
+    const status = document.getElementById(`stat_${dbid}`)
+    status.innerText = 'Running';
+    status.style.color = 'blue';
     const response=await fetch(`${apiUrl}execute_tc/${dbid}`)
-
+    console.log(response.status)
+    if (response.status<300) {
+      status.innerText = 'Successful';
+      status.style.color = 'green';
+    }
     if (response.status>=300)
-    { throw new Error("Resource not found"+response.statusText)}
+    {       status.innerText = 'Failed';
+             status.style.color = 'red';
+       throw new Error("Resource not found"+response.statusText)}
    var  message=await response.text()
     console.log(message)
 }

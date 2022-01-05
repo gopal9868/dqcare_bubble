@@ -8,6 +8,7 @@ const appList = document.getElementById("app_search");
 const searchCase=document.getElementById("tc_search");
 const tcFullArea=document.getElementById("tcfullarea");
 const scriptMArea=document.getElementById("scriptmarea");
+const scriptGenArea=document.getElementById("genarea");
 searchCase.addEventListener('click',e=>{
     const searchString=document.querySelector("#tcappnames").value;
     e.preventDefault();
@@ -32,7 +33,7 @@ appList.addEventListener('click',e=>{
     gettestcasefull(e.target.value)
      //gettestcase(e.target.value,tcsearcharea)
  })
- tcFullArea.addEventListener('click',e=>{
+ scriptGenArea.addEventListener('click',e=>{
     if(e.target.id.match(/execute_.*/)) {
         console.log("exe clicked")
         var index  = e.target.id.indexOf('_');
@@ -123,12 +124,11 @@ const gettestcasefull=async (testCaseName,searchType)=>{
     while (tablearea.firstChild) {
       tablearea.firstChild.remove()
   };
-  const table_columns=['appname','testcase_desc','source_query','target_query','source_connection_name',
-  'target_connection_name','source_table_name','target_table_name','change_date','execute','schedule','<button id="gen_script" class="btn btn-primary">Generate Python Schedule script</button>']
+  const table_columns=['App_Name','Testcase_Name','Source_Query','Target_Query','Update_Date','Schedule','Sched_Seq#']
   //console.log(table_columns);
-   var s='<table id="table_1"><tr>'
+   var s='<table id="table_1" class="table-hover table-bordered"><tr>'
     table_columns.forEach(row=> {
-      var thTag=`<th>${row}</th>`
+      var thTag=`<th "table-info">${row}</th>`
       s=s+thTag
       })
       s=s+`</tr></tr>`;
@@ -137,18 +137,22 @@ const gettestcasefull=async (testCaseName,searchType)=>{
       var editId=`${row['id']}`
       var deleteId=`delete_${row['id']}` 
       var tablerow=`<tr id="tablerow_${row['id']}"><td id="appname_${row['id']}">${row['appname']}</td><td>${row['testcase_desc']}</td>
-      <td>${row['source_query']}</td><td>${row['target_query']}</td><td id="srcconame_${row['id']}">${row['source_connection_name']}</td>
-      <td id="tgtconame_${row['id']}">${row['target_connection_name']}</td><td>${row['source_table_name']}</td><td>${row['target_table_name']}</td>
+      <td>${row['source_query']}</td><td>${row['target_query']}</td>
       <td>${row['change_date'].split('.')[0].replace('T',' ')}</td>
-      <td><button id="execute_${editId}" class="btn btn-primary rowedit">Execute</button></td>
       <td><input type="checkbox" value="true" name="checkb" id="chkbox_${row['id']}"> Yes</td>
-      <td><input type="number" id="numbox_${row['id']}"> Sched seq</td>
+      <td><input type="number"  class="form-control input-sm" id="numbox_${row['id']}"></td>
       </tr>`
       s=s+tablerow
       i=i+1
   });
 s=s+`</table>`
 tablearea.innerHTML =s ;
+var genscript=`<div class="container">
+   <br>
+<button type="button" id="gen_script" 
+       class="btn btn-success">Generate Schedule Script</button>
+       </div>`
+scriptGenArea.innerHTML=genscript;
 //console.log(s)
      };
 const excuteTestCase=async(dbid)=>{
@@ -171,6 +175,7 @@ const genPythonScheduleScript=async()=>{
 }
 
 const genPythonScheduleScript1=async (json) => {
+  console.log("generate script")
     const rawResponse = await fetch(`${apiUrl}generate_schedule/`, {
       method: 'POST',
       headers: {
