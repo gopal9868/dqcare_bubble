@@ -3,14 +3,14 @@
  text-align:center }
 .container1 {
 background-color:blue;
-color:coral
+color:black
 }
 .cardleft {
 background-color: rgb(255, 255, 255);
 height:35vh;
 margin-right: 2%;
 margin-bottom: 2%;
-margin-top:3%;
+margin-top:5%;
 margin-left: 10%;
 text-align: center;
 }
@@ -20,7 +20,7 @@ text-align: center;
   height:35vh;
   margin-right: 10%;
   margin-bottom: 2%;
-  margin-top:3%;
+  margin-top:5%;
   margin-left: 2%;
   text-align: center;
   }
@@ -29,3 +29,24 @@ body {
 background-color: black;
 
 }
+
+.textbold {
+  font-weight: bold;
+}
+
+.subtitle {
+  display: block;
+  margin: 0;
+  font-size: 0.8rem;
+  color: #EACE09;
+  padding: 0;
+
+}
+
+.title {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+}
+
