@@ -160,12 +160,18 @@ const excuteTestCase=async(dbid)=>{
     const response=await fetch(`${apiUrl}execute_tc/${dbid}`)
     console.log(response.status)
     if (response.status<300) {
-      status.innerText = 'Successful';
+      status.innerText = 'Completed';
       status.style.color = 'green';
     }
     if (response.status>=300)
-    {       status.innerText = 'Failed';
+    {       status.innerHTML = `<button id="error_${dbid}" class="btn btn-danger">Error</button>`;
              status.style.color = 'red';
+             const error_m = document.getElementById(`error_${dbid}`);
+             error_m.addEventListener('click',e=>{
+              e.preventDefault();
+              //console.log("error clicked")
+             alert(response.statusText)
+          })
        throw new Error("Resource not found"+response.statusText)}
    var  message=await response.text()
     console.log(message)
