@@ -170,7 +170,7 @@ const excuteTestCase=async(dbid)=>{
              error_m.addEventListener('click',e=>{
               e.preventDefault();
               //console.log("error clicked")
-             alert(response.statusText)
+             alert(response.statusText+'. Please check Server log for the details.')
           })
        throw new Error("Resource not found"+response.statusText)}
    var  message=await response.text()
