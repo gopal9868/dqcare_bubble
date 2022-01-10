@@ -88,7 +88,7 @@ const gettestcasefull=async (testCaseName,searchType)=>{
     while (tablearea.firstChild) {
       tablearea.firstChild.remove()
   };
-  const table_columns=['App_Name','Testcase_Name','Source_Result','Target_Result','Result_Desc','Capture_Date']
+  const table_columns=['App_Name','Testcase_Name','Source_Result','Target_Result','Result_Desc','Test_Status','Capture_Date']
   //console.log(table_columns);
    var s='<table id="table_1" class="table table-hover table-bordered"><tr>'
     table_columns.forEach(row=> {
@@ -100,8 +100,11 @@ const gettestcasefull=async (testCaseName,searchType)=>{
     data.forEach(row => {
       var editId=`${row['id']}`
       var deleteId=`delete_${row['id']}` 
-      var tablerow=`<tr id="tablerow_${row['id']}"><td id="appname_${row['id']}">${row['appname']}</td><td>${row['testcase_desc']}</td>
+      if ( row['test_status']=='Pass') {var bgcolor='#90EE90'}
+      if ( row['test_status']=='Fail') {var bgcolor="#FFA07A"}
+      var tablerow=`<tr id="tablerow_${row['id']}" style="background-color:${bgcolor};"><td id="appname_${row['id']}">${row['appname']}</td><td>${row['testcase_desc']}</td>
       <td>${row['source_result']}</td><td>${row['target_result']}</td><td id="srcconame_${row['id']}">${row['result_desc']}</td>
+      <td>${row['test_status']}</td>
       <td>${row['change_date'].split('.')[0].replace('T',' ')}</td></tr>`
       s=s+tablerow
       i=i+1
